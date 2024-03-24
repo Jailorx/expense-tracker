@@ -1,0 +1,12 @@
+:root {
+  --color-card: rgba(155, 155, 155, 1);
+  --color-topComponent: rgba(98, 98, 98, 1);
+  --color-background: rgba(59, 59, 59, 1);
+  --color-font: rgba(255, 255, 255, 1);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
