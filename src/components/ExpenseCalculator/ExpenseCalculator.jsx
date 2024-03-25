@@ -1,9 +1,10 @@
 import React from "react";
 import Card from "../Card/Card";
+import styles from "./ExpenseCalculator.module.css";
 
 const ExpenseCalculator = () => {
   return (
-    <>
+    <div className={styles.container}>
       <Card
         title="Wallet Balance"
         color={["#B5DC52", "#89E148"]}
@@ -14,7 +15,7 @@ const ExpenseCalculator = () => {
         color={["#FF9595", "#FF4747", "#FF3838"]}
         btnText="Expense"
       />
-    </>
+    </div>
   );
 };
 
