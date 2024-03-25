@@ -10,3 +10,8 @@
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
 }
+
+body {
+  color: var(--color-font);
+  background-color: var(--color-background);
+}
