@@ -1,0 +1,24 @@
+.card {
+  width: 355.41px;
+  height: 181px;
+  background-color: var(--color-card);
+  color: var(--color-font);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.card_title {
+  font-weight: 400;
+  font-size: 30px;
+}
+.card_btn {
+  font-weight: 700;
+  color: var(--color-font);
+  width: 167.65px;
+  height: 38px;
+  border: none;
+  border-radius: 15px;
+}
