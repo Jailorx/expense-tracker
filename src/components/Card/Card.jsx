@@ -10,7 +10,7 @@ const Card = ({ title, color, btnText }) => {
       ? {
           Title: "text",
           Price: "number",
-          "Select Category": "select",
+          Category: "text",
           "dd/mm/yyyy": "date",
         }
       : {
