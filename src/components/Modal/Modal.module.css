@@ -1,0 +1,27 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #efefefd9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  /* height: 300px; */
+  border-radius: 20px;
+}
+.content h3 {
+  color: black;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
