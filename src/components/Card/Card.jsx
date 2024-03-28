@@ -10,7 +10,7 @@ const Card = ({ title, color, btnText }) => {
       ? {
           Title: "text",
           Price: "number",
-          SelectCategory: "select",
+          "Select Category": "select",
           "dd/mm/yyyy": "date",
         }
       : {
@@ -20,7 +20,6 @@ const Card = ({ title, color, btnText }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleModalOpen = () => {
-    console.log("Modal is open");
     setIsModalVisible(true);
   };
   const handleModalClose = () => {

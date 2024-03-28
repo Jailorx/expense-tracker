@@ -14,14 +14,36 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  /* height: 300px; */
-  border-radius: 20px;
+  width: 538px;
+  padding: 20px;
+  border-radius: 15px;
 }
+
 .content h3 {
+  font-size: 30px;
+  font-weight: 700;
   color: black;
 }
 .flex {
   display: flex;
   flex-wrap: wrap;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.flex input {
+  width: 223px;
+  height: 51px;
+  padding: 20px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+}
+.flex input::placeholder {
+  font-family: open-sans, sans-serif;
+  color: #919191;
+}
+
+.flex input:focus {
+  outline: none;
 }

@@ -1,3 +1,4 @@
+import Button from "../Button/Button";
 import styles from "./Modal.module.css";
 import { createPortal } from "react-dom";
 
@@ -19,6 +20,8 @@ const Modal = ({ title, inputFields, onClose }) => {
                 placeholder={inputField}
               />
             ))}
+            <Button color="#F4BB4A" title={title} method="" />
+            <Button color="#D9D9D9" title="Cancel" method={onClose} />
           </div>
         </div>
       </div>
