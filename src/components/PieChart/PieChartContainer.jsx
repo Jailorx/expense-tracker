@@ -1,13 +1,37 @@
 import React from "react";
 import { PieChart, Pie, Cell } from "recharts";
 import styles from "./PieChartContainer.module.css";
+import { useData } from "../../context/ExpenseContext";
 
 function PieChartContainer() {
-  const data = [
-    { name: "Entertainment", value: 600 },
-    { name: "Food", value: 300 },
-    { name: "Travel", value: 100 },
-  ];
+  const { expenseList } = useData();
+
+  function calculateCategoryPercentage(expenseList) {
+    const totalExpense = expenseList.reduce(
+      (total, expense) => total + expense.Price,
+      0
+    );
+
+    const categoryPercentages = {};
+    expenseList.forEach((expense) => {
+      const { Category, Price } = expense;
+      const percentage = (Price / totalExpense) * 100;
+      if (Category in categoryPercentages) {
+        categoryPercentages[Category] += percentage;
+      } else {
+        categoryPercentages[Category] = percentage;
+      }
+    });
+
+    return categoryPercentages;
+  }
+
+  const categoryPercentages = calculateCategoryPercentage(expenseList);
+
+  const data = Object.keys(categoryPercentages).map((item) => ({
+    name: item,
+    value: categoryPercentages[item] || 0,
+  }));
   const COLORS = ["#FF9304", "#A000FF", "#FFBB28"];
 
   const RADIAN = Math.PI / 180;
@@ -37,7 +61,6 @@ function PieChartContainer() {
     );
   };
   return (
-    // <ResponsiveContainer width="100%" height="100%">
     <div className={styles.container}>
       <PieChart width={199} height={199}>
         <Pie
@@ -57,7 +80,11 @@ function PieChartContainer() {
       </PieChart>
       <div>
         {data.map((ele, index) => (
-          <span className={styles.category} key={ele.name}>
+          <span
+            className={styles.category}
+            key={ele.name}
+            style={{ color: COLORS[index] }}
+          >
             <span
               className={styles.categoryColor}
               style={{ backgroundColor: COLORS[index] }}
@@ -67,7 +94,6 @@ function PieChartContainer() {
         ))}
       </div>
     </div>
-    // </ResponsiveContainer>
   );
 }
 
