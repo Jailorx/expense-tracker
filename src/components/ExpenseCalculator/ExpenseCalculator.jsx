@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../Card/Card";
 import styles from "./ExpenseCalculator.module.css";
+import PieChartContainer from "../PieChart/PieChartContainer";
 
 const ExpenseCalculator = () => {
   return (
@@ -15,6 +16,7 @@ const ExpenseCalculator = () => {
         color={["#FF9595", "#FF4747", "#FF3838"]}
         btnText="Expense"
       />
+      <PieChartContainer />
     </div>
   );
 };
