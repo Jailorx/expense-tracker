@@ -1,0 +1,5 @@
+.expensesView {
+  width: 100vw;
+  background-color: pink;
+  display: flex;
+}
