@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Card.module.css";
 import Modal from "../Modal/Modal";
+import { useData } from "../../context/ExpenseContext";
 
 const Card = ({ title, color, btnText }) => {
   const linearGradient = `linear-gradient(90deg, ${color.join(", ")})`;
@@ -18,6 +19,12 @@ const Card = ({ title, color, btnText }) => {
         };
 
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const { expenseList, setExpenseList } = useData();
+
+  const handleFormData = (data) => {
+    console.log(data);
+    setExpenseList([data, ...expenseList]);
+  };
 
   const handleModalOpen = () => {
     setIsModalVisible(true);
@@ -47,6 +54,7 @@ const Card = ({ title, color, btnText }) => {
           title={`Add ${modalTitle[modalTitle.length - 1]}`}
           inputFields={inputFields}
           onClose={handleModalClose}
+          onSubmit={handleFormData}
         />
       )}
     </>

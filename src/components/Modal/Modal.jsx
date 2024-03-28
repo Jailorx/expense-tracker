@@ -1,10 +1,25 @@
+import { useState } from "react";
 import Button from "../Button/Button";
 import styles from "./Modal.module.css";
 import { createPortal } from "react-dom";
 
-const Modal = ({ title, inputFields, onClose }) => {
+const Modal = ({ title, inputFields, onClose, onSubmit }) => {
+  const [formData, setFormData] = useState({});
+
   const handleModalClick = (event) => {
     event.stopPropagation();
+  };
+
+  const handleInputChange = (event) => {
+    // console.log(event.target.placeholder);
+    const { placeholder, value } = event.target;
+    setFormData({ ...formData, [placeholder]: value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit(formData);
+    onClose();
   };
 
   return createPortal(
@@ -18,9 +33,10 @@ const Modal = ({ title, inputFields, onClose }) => {
                 key={inputField}
                 type={inputFields[inputField]}
                 placeholder={inputField}
+                onChange={handleInputChange}
               />
             ))}
-            <Button color="#F4BB4A" title={title} method="" />
+            <Button color="#F4BB4A" title={title} method={handleSubmit} />
             <Button color="#D9D9D9" title="Cancel" method={onClose} />
           </div>
         </div>
