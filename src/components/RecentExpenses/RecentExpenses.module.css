@@ -1,0 +1,21 @@
+.container {
+  width: 60%;
+  height: 345.03px;
+}
+
+.listContainer {
+  background-color: white;
+  height: 345.03px;
+  border-radius: 15px;
+}
+.listContainer h2 {
+  color: rgba(59, 59, 59, 1);
+}
+.emptyHistory {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

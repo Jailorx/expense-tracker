@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 const ExpenseContext = createContext();
 
-const ExpenseContextProvider = ({ children }) => {
+export const ExpenseContextProvider = ({ children }) => {
   const [expenseList, setExpenseList] = useState([]);
 
   return (
