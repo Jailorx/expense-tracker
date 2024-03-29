@@ -3,3 +3,7 @@
   display: flex;
   gap: 20px;
 }
+
+h1 {
+  margin: 30px;
+}

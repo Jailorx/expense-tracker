@@ -30,7 +30,6 @@ const RecentExpenses = () => {
   return (
     <div className={styles.container}>
       <h2>Recent Expenses</h2>
-
       <div className={styles.listContainer}>
         {expenseList.length > 0 ? (
           expenseList.map((expense, index) => (

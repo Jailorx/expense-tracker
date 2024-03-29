@@ -1,7 +1,10 @@
 .container {
   margin: 30px;
-  width: 100%;
+  width: 95vw;
   height: 345.03px;
+}
+h2 {
+  margin-bottom: 30px;
 }
 
 .listContainer {
@@ -11,7 +14,7 @@
   color: rgba(59, 59, 59, 1);
 }
 .card {
-  padding: 10px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
