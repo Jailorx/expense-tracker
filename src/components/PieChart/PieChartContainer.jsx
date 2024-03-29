@@ -2,6 +2,7 @@ import React from "react";
 import { PieChart, Pie, Cell } from "recharts";
 import styles from "./PieChartContainer.module.css";
 import { useData } from "../../context/ExpenseContext";
+import historyIcon from "../../assets/history-icon.svg";
 
 function PieChartContainer() {
   const { expenseList } = useData();
@@ -61,39 +62,51 @@ function PieChartContainer() {
     );
   };
   return (
-    <div className={styles.container}>
-      <PieChart width={199} height={199}>
-        <Pie
-          data={data}
-          cx="50%"
-          cy="50%"
-          labelLine={false}
-          label={renderCustomizedLabel}
-          outerRadius={80}
-          fill="#8884d8"
-          dataKey="value"
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
-      <div>
-        {data.map((ele, index) => (
-          <span
-            className={styles.category}
-            key={ele.name}
-            style={{ color: COLORS[index] }}
-          >
-            <span
-              className={styles.categoryColor}
-              style={{ backgroundColor: COLORS[index] }}
-            ></span>
-            {ele.name}
-          </span>
-        ))}
-      </div>
-    </div>
+    <>
+      {expenseList.length > 0 ? (
+        <div className={styles.container}>
+          <PieChart width={199} height={199}>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              labelLine={false}
+              label={renderCustomizedLabel}
+              outerRadius={80}
+              fill="#8884d8"
+              dataKey="value"
+            >
+              {data.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+          </PieChart>
+          <div>
+            {data.map((ele, index) => (
+              <span
+                className={styles.category}
+                key={ele.name}
+                style={{ color: COLORS[index] }}
+              >
+                <span
+                  className={styles.categoryColor}
+                  style={{ backgroundColor: COLORS[index] }}
+                ></span>
+                {ele.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className={styles.emptyHistory}>
+          <img src={historyIcon} alt="history_icon" />
+          <h2>You have no history to show</h2>
+        </div>
+      )}
+    </>
   );
 }
 
