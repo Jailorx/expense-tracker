@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Card.module.css";
 import Modal from "../Modal/Modal";
 import { useData } from "../../context/ExpenseContext";
@@ -20,7 +20,14 @@ const Card = ({ title, color, btnText }) => {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { expenseList, setExpenseList } = useData();
-  const [walletBalance, setWalletBalance] = useState(5000);
+
+  const [walletBalance, setWalletBalance] = useState(() => {
+    return parseInt(localStorage.getItem("walletBalance")) || 5000;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("walletBalance", walletBalance);
+  }, [walletBalance]);
 
   const handleFormData = (data) => {
     if (data.hasOwnProperty("Income Amount")) {
@@ -42,7 +49,7 @@ const Card = ({ title, color, btnText }) => {
         <h2 className={styles.card_title}>
           {title}:
           <span className={styles.card_amount} style={{ color: color[1] }}>
-            &#8377;{walletBalance}
+            &#8377;{title === "Wallet Balance" ? walletBalance : "0"}
           </span>
         </h2>
         <button
