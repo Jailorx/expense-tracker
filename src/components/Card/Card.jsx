@@ -32,7 +32,10 @@ const Card = ({ title, color, btnText }) => {
   const handleFormData = (data) => {
     if (data.hasOwnProperty("Income Amount")) {
       if (data["Income Amount"] > 0) {
-        setWalletBalance((prev) => prev + parseInt(data["Income Amount"]));
+        //cannot add wallet balance more than ten thousand at a time
+        if (data["Income Amount"] > 10000)
+          setWalletBalance((prev) => prev + 10000);
+        else setWalletBalance((prev) => prev + parseInt(data["Income Amount"]));
       }
     } else setExpenseList([data, ...expenseList]);
   };
