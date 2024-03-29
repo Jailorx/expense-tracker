@@ -12,7 +12,7 @@ function App() {
         <ExpenseCalculator />
         <div className={styles.expensesView}>
           <RecentExpenses />
-          <TopExpenses />
+          {/* <TopExpenses /> */}
         </div>
       </ExpenseContextProvider>
     </>

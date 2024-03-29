@@ -20,10 +20,14 @@ const Card = ({ title, color, btnText }) => {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { expenseList, setExpenseList } = useData();
+  const [walletBalance, setWalletBalance] = useState(5000);
 
   const handleFormData = (data) => {
-    console.log(data);
-    setExpenseList([data, ...expenseList]);
+    if (data.hasOwnProperty("Income Amount")) {
+      if (data["Income Amount"] > 0) {
+        setWalletBalance((prev) => prev + parseInt(data["Income Amount"]));
+      }
+    } else setExpenseList([data, ...expenseList]);
   };
 
   const handleModalOpen = () => {
@@ -38,7 +42,7 @@ const Card = ({ title, color, btnText }) => {
         <h2 className={styles.card_title}>
           {title}:
           <span className={styles.card_amount} style={{ color: color[1] }}>
-            &#8377;5000
+            &#8377;{walletBalance}
           </span>
         </h2>
         <button
