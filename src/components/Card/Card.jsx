@@ -28,6 +28,16 @@ const Card = ({ title, color, btnText }) => {
     return parseInt(localStorage.getItem("walletBalance")) || 5000;
   });
 
+  const [totalExpenses, setTotalExpenses] = useState(0);
+
+  useEffect(() => {
+    const sum = expenseList.reduce(
+      (acc, curr) => acc + parseInt(curr.Price),
+      0
+    );
+    setTotalExpenses(sum);
+  }, [expenseList]);
+
   useEffect(() => {
     localStorage.setItem("walletBalance", walletBalance);
   }, [walletBalance]);
@@ -118,7 +128,7 @@ const Card = ({ title, color, btnText }) => {
         <h2 className={styles.card_title}>
           {title}:
           <span className={styles.card_amount} style={{ color: color[1] }}>
-            &#8377;{title === "Wallet Balance" ? walletBalance : "0"}
+            &#8377;{title === "Wallet Balance" ? walletBalance : totalExpenses}
           </span>
         </h2>
         <button
