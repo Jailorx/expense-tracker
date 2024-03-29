@@ -28,7 +28,9 @@ const Card = ({ title, color, btnText }) => {
     return parseInt(localStorage.getItem("walletBalance")) || 5000;
   });
 
-  const [totalExpenses, setTotalExpenses] = useState(0);
+  const [totalExpenses, setTotalExpenses] = useState(() => {
+    return parseInt(localStorage.getItem("totalExpenses")) || 0;
+  });
 
   useEffect(() => {
     const sum = expenseList.reduce(
@@ -36,6 +38,7 @@ const Card = ({ title, color, btnText }) => {
       0
     );
     setTotalExpenses(sum);
+    localStorage.setItem("totalExpenses", sum);
   }, [expenseList]);
 
   useEffect(() => {
