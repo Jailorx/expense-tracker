@@ -1,11 +1,11 @@
 .container {
   margin: 500px;
-  width: 1211px;
-  height: 269px;
+  max-width: 100vw;
+  height: 300px;
   border-radius: 10px;
   background-color: var(--color-topComponent);
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 5px;
+  margin: 30px;
 }
