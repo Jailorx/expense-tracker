@@ -9,6 +9,7 @@ h2 {
 
 .listContainer {
   background-color: white;
+  position: relative;
   height: 345.03px;
   border-radius: 15px;
   color: rgba(59, 59, 59, 1);
@@ -42,4 +43,44 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.btns {
+  width: 40px;
+  height: 30px;
+  margin: 0 4px;
+  padding: 5px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.btns[disabled] {
+  color: gray;
+  border: 2px solid gray;
+  pointer-events: none;
+}
+
+.currentPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #43967b;
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
 }
